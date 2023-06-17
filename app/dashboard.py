@@ -219,6 +219,7 @@ app.layout = dmc.MantineProvider(
                                     span=6
                                 )
                             ],
+                            grow=True,
                             gutter="lg",
                             mb="lg"
                         ),
