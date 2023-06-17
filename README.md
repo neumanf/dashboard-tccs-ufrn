@@ -17,3 +17,12 @@ python -m pip install -r requirements.txt
 # Execute a aplicação
 python -m gunicorn --reload --chdir app dashboard:server
 ```
+
+## Autores
+
+[@neumanf](https://www.github.com/neumanf) e [@jamlemoos](https://www.github.com/jamlemoos) 
+
+## Licença
+
+MIT
+
