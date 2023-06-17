@@ -8,6 +8,7 @@ from dash import html
 from dash_iconify import DashIconify
 
 from app.graphs.course_with_most_papers_in_the_last_5_years import get_course_with_most_papers_in_the_last_5_years
+from app.graphs.number_of_papers_by_advisor import get_number_of_papers_by_advisor
 from app.graphs.top_5_courses_with_most_work import get_top_5_courses_with_most_work
 from app.utils import sanitize_dataframe
 
@@ -35,6 +36,8 @@ top_5_courses_with_most_work_graph = get_top_5_courses_with_most_work(df)
 
 # Course with most papers produced in the last 5 years
 course_with_most_papers_graph, course_with_most_papers = get_course_with_most_papers_in_the_last_5_years(df)
+
+number_of_papers_by_advisor_graph = get_number_of_papers_by_advisor(df)
 
 app.layout = dmc.MantineProvider(
     [
@@ -167,6 +170,26 @@ app.layout = dmc.MantineProvider(
                                                 dcc.Graph(
                                                     id='course-with-most-papers-produced-in-the-last-5-years-graph',
                                                     figure=course_with_most_papers_graph
+                                                )
+                                            ),
+                                        ],
+                                        withBorder=True,
+                                        shadow="sm",
+                                        radius="md",
+                                        style={"width": 700},
+                                    ),
+                                    span=6
+                                ),
+                                dmc.Col(
+                                    dmc.Card(
+                                        [
+                                            dmc.Title(
+                                                "Top 10 número de trabalhos por orientador",
+                                                order=5, mb="sm"),
+                                            dmc.CardSection(
+                                                dcc.Graph(
+                                                    id='number-of-papers-by-advisor-graph',
+                                                    figure=number_of_papers_by_advisor_graph
                                                 )
                                             ),
                                         ],
