@@ -10,13 +10,6 @@ COPY . /app
 # switch working directory
 WORKDIR /app
 
-# install system dependencies
-RUN apk add --no-cache --update-cache gfortran build-base wget libpng-dev openblas-dev
-RUN apk add py3-scipy
-
-# update pip
-RUN pip install --upgrade pip
-
 # install the dependencies and packages in the requirements file
 RUN pip install -r requirements.txt
 
