@@ -15,5 +15,5 @@ source venv/bin/activate
 python -m pip install -r requirements.txt
 
 # Execute a aplicação
-python -m gunicorn dashboard:server
+python -m gunicorn --chdir app dashboard:server
 ```

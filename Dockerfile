@@ -16,4 +16,4 @@ RUN pip install -r requirements.txt
 
 EXPOSE 8080
 # run
-CMD ["gunicorn", "--bind", ":8080", "dashboard:server"]
+CMD ["gunicorn", "--bind", ":8080", "--chdir", "app", "dashboard:server"]
