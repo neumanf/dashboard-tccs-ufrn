@@ -167,7 +167,7 @@ app.layout = dmc.MantineProvider(
                                 dmc.Col(
                                     dmc.Card(
                                         [
-                                            dmc.Title(f"Distribuição de trabalhos do curso {course_with_most_papers} nos últimos 5 anos", order=5, mb="sm"),
+                                            dmc.Title(f"Distribuição de trabalhos do curso de {course_with_most_papers} nos últimos 5 anos", order=5, mb="sm"),
                                             dmc.CardSection(
                                                 dcc.Graph(
                                                     id='course-with-most-papers-produced-in-the-last-5-years-graph',
