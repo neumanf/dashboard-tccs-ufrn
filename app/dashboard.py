@@ -57,6 +57,7 @@ app.layout = dmc.MantineProvider(
                                                 label="Dataset",
                                             ),
                                             href="https://dados.ufrn.br/dataset/trabalhos-de-conclusao-de-curso",
+                                            target="_blank"
                                         ),
                                         dmc.Anchor(
                                             dmc.Tooltip(
@@ -67,6 +68,7 @@ app.layout = dmc.MantineProvider(
                                                 label="Código fonte",
                                             ),
                                             href="https://github.com/neumanf/dashboard-tccs-ufrn",
+                                            target="_blank"
                                         ),
                                     ]
                                 )
