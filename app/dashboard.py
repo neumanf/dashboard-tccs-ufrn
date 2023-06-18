@@ -9,6 +9,7 @@ from dash_iconify import DashIconify
 
 from app.graphs.course_with_most_papers_in_the_last_5_years import get_course_with_most_papers_in_the_last_5_years
 from app.graphs.number_of_papers_by_advisor import get_number_of_papers_by_advisor
+from app.graphs.number_of_papers_by_year import get_number_of_papers_by_year
 from app.graphs.number_of_papers_presented_by_type import get_number_of_papers_presented_by_type
 from app.graphs.top_5_courses_with_most_work import get_top_5_courses_with_most_work
 from app.utils import sanitize_dataframe
@@ -36,6 +37,7 @@ top_5_courses_with_most_work_graph = get_top_5_courses_with_most_work(df)
 course_with_most_papers_graph, course_with_most_papers = get_course_with_most_papers_in_the_last_5_years(df)
 number_of_papers_by_advisor_graph = get_number_of_papers_by_advisor(df)
 number_of_papers_presented_by_type_graph = get_number_of_papers_presented_by_type(df)
+number_of_papers_by_year_graph = get_number_of_papers_by_year(df)
 
 app.layout = dmc.MantineProvider(
     [
@@ -159,7 +161,8 @@ app.layout = dmc.MantineProvider(
                                         shadow="sm",
                                         radius="md"
                                     ),
-                                    span=6
+                                    lg=6,
+                                    md=3
                                 ),
                                 dmc.Col(
                                     dmc.Card(
@@ -176,7 +179,8 @@ app.layout = dmc.MantineProvider(
                                         shadow="sm",
                                         radius="md",
                                     ),
-                                    span=6
+                                    lg=6,
+                                    md=3
                                 ),
                                 dmc.Col(
                                     dmc.Card(
@@ -195,7 +199,8 @@ app.layout = dmc.MantineProvider(
                                         shadow="sm",
                                         radius="md"
                                     ),
-                                    span=6
+                                    lg=6,
+                                    md=3
                                 ),
                                 dmc.Col(
                                     dmc.Card(
@@ -214,7 +219,28 @@ app.layout = dmc.MantineProvider(
                                         shadow="sm",
                                         radius="md"
                                     ),
-                                    span=6
+                                    lg=6,
+                                    md=3
+                                ),
+                                dmc.Col(
+                                    dmc.Card(
+                                        [
+                                            dmc.Title(
+                                                "Evolução de entregas de trabalho ao longo dos anos",
+                                                order=5, mb="sm"),
+                                            dmc.CardSection(
+                                                dcc.Graph(
+                                                    id='number-of-papers-by-year-graph',
+                                                    figure=number_of_papers_by_year_graph
+                                                )
+                                            ),
+                                        ],
+                                        withBorder=True,
+                                        shadow="sm",
+                                        radius="md"
+                                    ),
+                                    lg=6,
+                                    md=3
                                 )
                             ],
                             grow=True,
