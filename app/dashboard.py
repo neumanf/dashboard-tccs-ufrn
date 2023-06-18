@@ -96,7 +96,7 @@ app.layout = dmc.MantineProvider(
                                         ),
                                         dmc.Text(row_count)
                                     ],
-                                    style={"width": "22em"}
+                                    style={"width": "22.75em"}
                                 ),
                                 dmc.Card(
                                     [
@@ -109,7 +109,7 @@ app.layout = dmc.MantineProvider(
                                         ),
                                         dmc.Text(column_count)
                                     ],
-                                    style={"width": "22em"}
+                                    style={"width": "22.75em"}
                                 ),
                                 dmc.Card(
                                     [
@@ -122,7 +122,7 @@ app.layout = dmc.MantineProvider(
                                         ),
                                         dmc.Text(f"{file_size} MiB")
                                     ],
-                                    style={"width": "22em"}
+                                    style={"width": "22.75em"}
                                 ),
                                 dmc.Card(
                                     [
@@ -135,7 +135,7 @@ app.layout = dmc.MantineProvider(
                                         ),
                                         dmc.Text(analysis_period)
                                     ],
-                                    style={"width": "22em"}
+                                    style={"width": "22.75em"}
                                 )
                             ],
                             mb="xl"
@@ -145,7 +145,7 @@ app.layout = dmc.MantineProvider(
                                 dmc.Col(
                                     dmc.Card(
                                         [
-                                            dmc.Title("Top 5 cursos que mais entregam trabalho", order=5, mb="sm"),
+                                            dmc.Title("Top 5 cursos que mais entregam trabalhos", order=5, mb="sm"),
                                             dmc.CardSection(
                                                 dcc.Graph(
                                                     id='top-5-courses-graph',
@@ -155,8 +155,7 @@ app.layout = dmc.MantineProvider(
                                         ],
                                         withBorder=True,
                                         shadow="sm",
-                                        radius="md",
-                                        style={"width": 700},
+                                        radius="md"
                                     ),
                                     span=6
                                 ),
@@ -174,7 +173,6 @@ app.layout = dmc.MantineProvider(
                                         withBorder=True,
                                         shadow="sm",
                                         radius="md",
-                                        style={"width": 700},
                                     ),
                                     span=6
                                 ),
@@ -193,8 +191,7 @@ app.layout = dmc.MantineProvider(
                                         ],
                                         withBorder=True,
                                         shadow="sm",
-                                        radius="md",
-                                        style={"width": 700},
+                                        radius="md"
                                     ),
                                     span=6
                                 ),
@@ -213,8 +210,7 @@ app.layout = dmc.MantineProvider(
                                         ],
                                         withBorder=True,
                                         shadow="sm",
-                                        radius="md",
-                                        style={"width": 700},
+                                        radius="md"
                                     ),
                                     span=6
                                 )
