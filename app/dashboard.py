@@ -8,6 +8,8 @@ from dash import html
 from dash_iconify import DashIconify
 
 from app.graphs.course_with_most_papers_in_the_last_5_years import get_course_with_most_papers_in_the_last_5_years
+from app.graphs.graph_with_course_level_edges import create_graph_with_course_level_edges
+from app.graphs.graph_with_keyword_edges import create_graph_with_keyword_edges
 from app.graphs.number_of_papers_by_advisor import get_number_of_papers_by_advisor
 from app.graphs.number_of_papers_by_year import get_number_of_papers_by_year
 from app.graphs.number_of_papers_presented_by_type import get_number_of_papers_presented_by_type
@@ -38,6 +40,8 @@ course_with_most_papers_graph, course_with_most_papers = get_course_with_most_pa
 number_of_papers_by_advisor_graph = get_number_of_papers_by_advisor(df)
 number_of_papers_presented_by_type_graph = get_number_of_papers_presented_by_type(df)
 number_of_papers_by_year_graph = get_number_of_papers_by_year(df)
+course_level_graph = create_graph_with_course_level_edges(df)
+keyword_graph = create_graph_with_keyword_edges(df)
 
 app.layout = dmc.MantineProvider(
     [
@@ -223,6 +227,42 @@ app.layout = dmc.MantineProvider(
                                     md=3
                                 ),
                                 dmc.Col(
+                                        dmc.Card(
+                                            [
+                                                dmc.Title("Grafo de relação entre trabalhos de cursos de diferentes níveis e áreas de estudo em comum", order=5, mb="sm"),
+                                                dmc.CardSection(
+                                                    dcc.Graph(
+                                                        id='graph-1',
+                                                        figure=course_level_graph
+                                                    )
+                                                ),
+                                            ],
+                                            withBorder=True,
+                                            shadow="sm",
+                                            radius="md"
+                                        ),
+                                        lg=6,
+                                        md=3
+                                ),
+                                dmc.Col(
+                                        dmc.Card(
+                                            [
+                                                dmc.Title("Grafo de relação entre trabalhos com palavras-chave em comum", order=5, mb="sm"),
+                                                dmc.CardSection(
+                                                    dcc.Graph(
+                                                        id='graph-2',
+                                                        figure=keyword_graph
+                                                    )
+                                                ),
+                                            ],
+                                            withBorder=True,
+                                            shadow="sm",
+                                            radius="md"
+                                        ),
+                                        lg=6,
+                                        md=3
+                                ),
+                                dmc.Col(
                                     dmc.Card(
                                         [
                                             dmc.Title(
@@ -241,7 +281,7 @@ app.layout = dmc.MantineProvider(
                                     ),
                                     lg=6,
                                     md=3
-                                )
+                                ),
                             ],
                             grow=True,
                             gutter="lg",
